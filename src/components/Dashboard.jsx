@@ -13,16 +13,19 @@ import {
   import { Button } from "@/components/ui/button"
   import { useState } from 'react'
 
+  import handleSubmit from '@/app/utils/handleSubmit'
+
 
   
 function Dashboard() {
-  
-  const [inputs, setInputs] = useState([]);
-  const [linkNumber, setLinkNumber] = useState(1)
+
+  const [inputs, setInputs] = useState([<Input type="text" id="link_1" placeholder="Link 1" key={0} />]);
+  const [linkNumber, setLinkNumber] = useState(2)
 
   const handleClick = () => {
-    setInputs([...inputs, <Input placeholder={`Link ${linkNumber}`} key={inputs.length} />]);
+    setInputs([...inputs, <Input type="text" id={`link_${linkNumber}`} placeholder={`Link ${linkNumber}`} key={inputs.length} />]);
     setLinkNumber(linkNumber+1)
+    
   };
   return (
     <div>
@@ -33,18 +36,18 @@ function Dashboard() {
   </CardHeader>
   <CardContent>
     <div>
-      <Input placeholder='Name'/>
+      <Input id="name" type="text" placeholder='Name'/>
       <div>
       {inputs.map((input, index) => (
           <div key={index}>{input}</div>
         ))}
       </div>
-      <button onClick={handleClick}>+</button>
+      <Button onClick={handleClick}>+</Button>
     </div>
   </CardContent>
   <CardFooter>
     <p>
-      <Button variant="outline">Create your unique link</Button>
+      <Button onClick={handleSubmit} id="submitButton" variant="outline">Create your unique link</Button>
     </p>
   </CardFooter>
 </Card>
