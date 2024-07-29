@@ -1,4 +1,5 @@
 import generateUniqueId from "generate-unique-id"
+import { stringify } from "querystring"
 
 function handleSubmit(){
     const id = generateUniqueId({
@@ -16,20 +17,33 @@ function handleSubmit(){
     .then(()=>alert("Link Copied to clipboard"))
 
     let index = 1
+    const links = {}
     let element = document.getElementById(`link_${index}`);
-    while(!element){
-        console.log(element.value);
-        index++
-        const element = document.getElementById(`link_${index}`);
+    while(element){
+        links[index]= element.value
+        index++  
+        element = document.getElementById(`link_${index}`);    
+      
     }
-        
-        
+    const userData = {
+        uid: id,
+        name: nameInput.value,
+        links: links
+    }
     
-        
-
+async()=>{
+    const response = await fetch('/api/user-data',{
+        method: 'POST',
+        body: stringify.JSON({userData}),
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    })
+    const data = await response.json()
+    console.log(data);
+}
     }
 
-    //Insert to DB
 
 
 
