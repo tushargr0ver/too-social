@@ -1,6 +1,5 @@
 import { Schema } from "mongoose"
 import mongoose from "mongoose"
-import IUser from './IUser'
 
 
 const userSchema:Schema = new mongoose.Schema({
@@ -9,7 +8,7 @@ const userSchema:Schema = new mongoose.Schema({
     links: { type: Schema.Types.Mixed}
 })
 
-const User = mongoose.models.User || mongoose.model('Users', userSchema);
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User
 

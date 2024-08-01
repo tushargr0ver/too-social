@@ -1,9 +1,21 @@
-//Check id in db and fetch data
+
+import IdExist from '@/components/IdExist';
+import getData from '../../../controllers/getData'
+import IdNotExist from '@/components/IdNotExist';
+import IUser from '@/app/models/IUser';
+
 interface Params {
   id: string;
 }
 
 
-export default function Page({ params } : {params : Params}) {
-    return <div>User id {params.id}</div>
+export default async function Page({ params } : {params : Params}) {
+    const userData : IUser | null = await getData(params.id)
+    
+    
+    return(
+      <div>
+        {userData ? <IdExist userData={userData} /> : <IdNotExist />}
+      </div>
+    )
   }
