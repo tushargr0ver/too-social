@@ -14,4 +14,4 @@ const IdExist: React.FC<IdExistProps> = ({ userData }) => {
 
 export default IdExist
 
-//https://ui.shadcn.com/docs/components/scroll-area
+//https://ui.shadcn.com/docs/components/carousel
