@@ -14,7 +14,7 @@ export default async function Page({ params } : {params : Params}) {
     
     
     return(
-      <div>
+      <div className="h-full flex justify-center items-center">
         {userData ? <IdExist userData={userData} /> : <IdNotExist />}
       </div>
     )

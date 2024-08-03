@@ -2,6 +2,7 @@ import generateUniqueId from "generate-unique-id"
 import axios from 'axios'
 
 function handleSubmit(): void{
+  const DOMAIN = 'http://localhost:3000'
     const uid: string = generateUniqueId({
         length: 6,
         useNumbers: false
@@ -11,9 +12,9 @@ function handleSubmit(): void{
     const Button: HTMLButtonElement | null = document.getElementById('submitButton') as HTMLButtonElement;
 
     if(Button){
-    Button.innerHTML = `<a href=''>${uid}</a>`
+    Button.innerHTML = `<a href='${DOMAIN}/user/${uid}'>${DOMAIN}/user/${uid}</a>`
     Button.disabled = true
-    Button.value = `${uid}`
+    Button.value = `${DOMAIN}/user/${uid}`
     let linkToCopy = Button.value;
     navigator.clipboard.writeText(linkToCopy)
     .then(()=>alert("Link Copied to clipboard"))
