@@ -14,7 +14,7 @@ function handleSubmit(): void{
     if(Button){
     Button.innerHTML = `<a href='https://too-social.vercel.app/user/${uid}'>https://too-social.vercel.app/user/${uid}</a>`
     Button.disabled = true
-    Button.value = `${process.env.NEXT_PUBLIC_DOMAIN}/user/${uid}`
+    Button.value = `https://too-social.vercel.app/user/${uid}`
     let linkToCopy = Button.value;
     navigator.clipboard.writeText(linkToCopy)
     .then(()=>alert("Link Copied to clipboard"))
