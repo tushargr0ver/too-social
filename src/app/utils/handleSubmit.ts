@@ -12,7 +12,7 @@ function handleSubmit(): void{
     const Button: HTMLButtonElement | null = document.getElementById('submitButton') as HTMLButtonElement;
 
     if(Button){
-    Button.innerHTML = `<a href='${process.env.NEXT_PUBLIC_DOMAIN}/user/${uid}'>${process.env.NEXT_PUBLIC_DOMAIN}/user/${uid}</a>`
+    Button.innerHTML = `<a href='https://too-social.vercel.app/user/${uid}'>https://too-social.vercel.app/user/${uid}</a>`
     Button.disabled = true
     Button.value = `${process.env.NEXT_PUBLIC_DOMAIN}/user/${uid}`
     let linkToCopy = Button.value;
