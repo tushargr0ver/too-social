@@ -23,7 +23,7 @@ const IdExist: React.FC<IdExistProps> = ({ userData }) => {
   <CarouselContent>
     {
      links.map((item, index)=>(
-      <CarouselItem><a href={item}>{item}</a></CarouselItem>
+      <CarouselItem key={index}><a href={links[index]}>{links[index]}</a></CarouselItem>
      )) 
     }
   
